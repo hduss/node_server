@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page d'acceuil</title>
+</head>
+
+<body>
+	<div id="app">
+		<ol>
+		  <li v-for="book in books">
+			{{ book }}
+		  </li>
+		</ol>
+	  </div>
+
+
+	  <div></div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script>
+
+
+
+
+// Récupération des books depuis l'API
+const app = new Vue({
+	el: '#app',
+	data() {
+		return {
+			books: []
+		}
+	},
+	beforeMount(){
+		this.getDatas()
+	},
+	methods: {
+		async getDatas(){
+			const resp = await fetch('/api/book/')
+			const dataResp = await resp.json()
+			console.log('data => ', dataResp)
+
+			this.books = dataResp
+		},
+
+		getDatas2: async () => {
+			const resp = await fetch('/api/book/')
+			const dataResp = await resp.json()
+			console.log('data => ', dataResp)
+
+			this.books = dataResp
+		},
+		
+
+		// ES6 ecriture
+		getTest2: async () => {
+			
+			this.books = {test: 'voila', ici: 'ici'}
+			console.log('this.books => ', this.books)
+		}
+	},
+	// mounted() {
+	// 	// Execution de getDatas()
+	// 	this.getDatas2()
+		
+	// },
+})
+
+
+
+// const resultDatas = Promise.all([getDatas])
+// console.log('resultDatas => ', resultDatas)
+
+</script>		
+</html>
