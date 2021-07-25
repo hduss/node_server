@@ -21,7 +21,7 @@ exports.addBook = (req, res) => {
 	console.log('new Book => ', book)
 
 	book.save()
-	.then(() => res.status(201).json({ message: "Objet ${book} enregistré !"}))
+	.then(() => res.status(201).json({ message: `Objet ${book.title} enregistré !`}))
 	.catch(error => res.status(400).json({ error }))
 
 }

@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 // app.use(bodyParser.json());
 // Middleware
-
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
 	res.sendFile(path.join( __dirname, "../frontend/index.html"))
