@@ -10,4 +10,4 @@ router.put('/:id', bookCtrl.modifyBook)
 router.delete('/delete/:id', bookCtrl.deleteBook)
 
 
-module.exports = router;
+module.exports = router

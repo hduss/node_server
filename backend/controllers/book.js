@@ -1,9 +1,6 @@
 const Book = require('../../models/book')
 
 
-
-
-
 exports.getAllBooks = (req, res) => {
     const books = Book.find()
     .then((books) => res.status(200).json(books))
@@ -12,7 +9,7 @@ exports.getAllBooks = (req, res) => {
 
 exports.getBook = (req, res) => {
     const book = Book.findOne({_id: req.params.id})
-	.then(thing => res.status(200).json(thing))
+	.then(book => res.status(200).json(book))
 	.catch(error => res.status(404).json({ error }))
 }
 
